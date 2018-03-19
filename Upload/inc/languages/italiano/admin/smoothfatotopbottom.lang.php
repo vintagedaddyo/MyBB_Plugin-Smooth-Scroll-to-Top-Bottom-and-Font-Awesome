@@ -14,8 +14,8 @@
 
 // plugin_info
 
-$l['smoothfatotopbottom_Name'] = '[jQuery] Smooth Scroll to Top Bottom Font-awesome';
-$l['smoothfatotopbottom_Desc'] = 'Adds a smooth scroll to top bottom with font-awesome';
+$l['smoothfatotopbottom_Name'] = '[jQuery] Scorri fino al bordo superiore Font-awesome';
+$l['smoothfatotopbottom_Desc'] = 'Aggiunge una scroll scorrevole alla parte superiore in basso con font-awesome';
 $l['smoothfatotopbottom_Web'] = 'http://community.mybb.com/user-6029.html';
 $l['smoothfatotopbottom_Auth'] = 'Vintagedaddyo';
 $l['smoothfatotopbottom_AuthSite'] = 'http://community.mybb.com/user-6029.html';
