@@ -8,7 +8,7 @@
  *
  * MyBB Version: 1.8
  *
- * Plugin Version: 1.1
+ * Plugin Version: 1.2
  * 
  */
 
@@ -46,10 +46,235 @@ function smoothfatotopbottom_info()
 }
 
 
+// Activate
+
+function smoothfatotopbottom_activate() {
+
+global $db, $lang;
+
+    $lang->load("smoothfatotopbottom");
+
+$smoothfatotopbottom_group = array(
+        'gid'    => '0',
+        'name'  => 'smoothfatotopbottom',
+        'title'      => $lang->smoothfatotopbottom_settings_Title,
+        'description'    => $lang->smoothfatotopbottom_settings_Description,
+        'disporder'    => "1",
+        'isdefault'  => "0",
+    );
+
+$db->insert_query('settinggroups', $smoothfatotopbottom_group);
+
+ $gid = $db->insert_id();
+
+$smoothfatotopbottom_setting_1 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable',
+        'title'            => $lang->smoothfatotopbottom_option_1_Title,
+        'description'    => $lang->smoothfatotopbottom_option_1_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 1,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_2 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_input',
+        'title'            => $lang->smoothfatotopbottom_option_2_Title,
+        'description'    => $lang->smoothfatotopbottom_option_2_Description,
+        'optionscode'    => 'textarea',
+        'value'        => $lang->smoothfatotopbottom_options_2_Site,
+        'disporder'        => 2,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_3 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_index',
+        'title'            => $lang->smoothfatotopbottom_option_3_Title,
+        'description'    => $lang->smoothfatotopbottom_option_3_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 3,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_4 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_forumdisplay',
+        'title'            => $lang->smoothfatotopbottom_option_4_Title,
+        'description'    => $lang->smoothfatotopbottom_option_4_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 4,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_5 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_showthread',
+        'title'            => $lang->smoothfatotopbottom_option_5_Title,
+        'description'    => $lang->smoothfatotopbottom_option_5_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 5,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_6 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_memberlist',
+        'title'            => $lang->smoothfatotopbottom_option_6_Title,
+        'description'    => $lang->smoothfatotopbottom_option_6_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 6,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_7 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_member',
+        'title'            => $lang->smoothfatotopbottom_option_7_Title,
+        'description'    => $lang->smoothfatotopbottom_option_7_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 7,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_8 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_misc',
+        'title'            => $lang->smoothfatotopbottom_option_8_Title,
+        'description'    => $lang->smoothfatotopbottom_option_8_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 8,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_9 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_search',
+        'title'            => $lang->smoothfatotopbottom_option_9_Title,
+        'description'    => $lang->smoothfatotopbottom_option_9_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 9,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_10 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_modcp',
+        'title'            => $lang->smoothfatotopbottom_option_10_Title,
+        'description'    => $lang->smoothfatotopbottom_option_10_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 10,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_11 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_usercp',
+        'title'            => $lang->smoothfatotopbottom_option_11_Title,
+        'description'    => $lang->smoothfatotopbottom_option_11_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 11,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_12 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_private',
+        'title'            => $lang->smoothfatotopbottom_option_12_Title,
+        'description'    => $lang->smoothfatotopbottom_option_12_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 12,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_13 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_printthread',
+        'title'            => $lang->smoothfatotopbottom_option_13_Title,
+        'description'    => $lang->smoothfatotopbottom_option_13_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 13,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_14 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_calendar',
+        'title'            => $lang->smoothfatotopbottom_option_14_Title,
+        'description'    => $lang->smoothfatotopbottom_option_14_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 14,
+        'gid'            => intval($gid),
+    );
+
+$smoothfatotopbottom_setting_15 = array(
+        'sid'            => '0',
+        'name'        => 'smoothfatotopbottom_enable_portal',
+        'title'            => $lang->smoothfatotopbottom_option_15_Title,
+        'description'    => $lang->smoothfatotopbottom_option_15_Description,
+        'optionscode'    => 'yesno',
+        'value'        => '1',
+        'disporder'        => 15,
+        'gid'            => intval($gid),
+    );
+
+$db->insert_query('settings', $smoothfatotopbottom_setting_1);
+// $db->insert_query('settings', $smoothfatotopbottom_setting_2);
+$db->insert_query('settings', $smoothfatotopbottom_setting_3);
+$db->insert_query('settings', $smoothfatotopbottom_setting_4);
+$db->insert_query('settings', $smoothfatotopbottom_setting_5);
+$db->insert_query('settings', $smoothfatotopbottom_setting_6);
+$db->insert_query('settings', $smoothfatotopbottom_setting_7);
+$db->insert_query('settings', $smoothfatotopbottom_setting_8);
+$db->insert_query('settings', $smoothfatotopbottom_setting_9);
+$db->insert_query('settings', $smoothfatotopbottom_setting_10);
+$db->insert_query('settings', $smoothfatotopbottom_setting_11);
+$db->insert_query('settings', $smoothfatotopbottom_setting_12);
+$db->insert_query('settings', $smoothfatotopbottom_setting_13);
+$db->insert_query('settings', $smoothfatotopbottom_setting_14);
+$db->insert_query('settings', $smoothfatotopbottom_setting_15);
+
+rebuild_settings(); 
+
+}
+
+// Deactivate
+
+function smoothfatotopbottom_deactivate()
+{
+
+  global $db, $lang;
+
+    $lang->load("smoothfatotopbottom");
+
+ $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name IN ('smoothfatotopbottom_enable')");
+    $db->query("DELETE FROM ".TABLE_PREFIX."settinggroups WHERE name='smoothfatotopbottom'");
+
+rebuild_settings();
+
+}
+
 function smoothfatotopbottom($page)
 {
 	global $mybb,$db;
 
+ if ($mybb->settings['smoothfatotopbottom_enable'] == 1){
+
+if ($mybb->settings['smoothfatotopbottom_enable_index'] == 1){
 
         if(THIS_SCRIPT=="index.php")
     {
@@ -65,6 +290,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_forumdisplay'] == 1){
+
 	    if(THIS_SCRIPT=="forumdisplay.php")
 	{
 		{
@@ -79,6 +308,10 @@ function smoothfatotopbottom($page)
 			return $page;
 		}
 	}
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_showthread'] == 1){
+
         if(THIS_SCRIPT=="showthread.php")
     {
         {
@@ -93,6 +326,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_memberlist'] == 1){
+
         if(THIS_SCRIPT=="memberlist.php")
     {
         {
@@ -107,6 +344,11 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_member'] == 1){
+
+
         if(THIS_SCRIPT=="member.php")
     {
         {
@@ -121,6 +363,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_misc'] == 1){
+
         if(THIS_SCRIPT=="misc.php")
     {
         {
@@ -135,6 +381,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_search'] == 1){
+
         if(THIS_SCRIPT=="search.php")
     {
         {
@@ -149,6 +399,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_modcp'] == 1){
+
         if(THIS_SCRIPT=="modcp.php")
     {
         {
@@ -163,6 +417,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_usercp'] == 1){
+
         if(THIS_SCRIPT=="usercp.php")
     {
         {
@@ -177,6 +435,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_private'] == 1){
+
         if(THIS_SCRIPT=="private.php")
     {
         {
@@ -191,6 +453,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_printthread'] == 1){
+
         if(THIS_SCRIPT=="printthread.php")
     {
         {
@@ -205,6 +471,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_calendar'] == 1){
+
         if(THIS_SCRIPT=="calendar.php")
     {
         {
@@ -219,6 +489,10 @@ function smoothfatotopbottom($page)
             return $page;
         }
     }
+}
+
+if ($mybb->settings['smoothfatotopbottom_enable_portal'] == 1){
+
         if(THIS_SCRIPT=="portal.php")
 	{
 
@@ -236,4 +510,6 @@ function smoothfatotopbottom($page)
 	}
 }
 
+}
+}
 ?>
